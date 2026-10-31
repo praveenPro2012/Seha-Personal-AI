@@ -1,7 +1,7 @@
 {
-  "privateEnabled": true,
+  "privateEnabled": false,
   "groupsEnabled": false,
-  "onlyMe": false,
+  "onlyMe": true,
   "welcomeEnabled": true,
   "language": "auto",
   "maxMediaMb": 15
