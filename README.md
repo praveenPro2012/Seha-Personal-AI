@@ -28,7 +28,7 @@
 
 ## What is Seha?
 
-Seha is a personal WhatsApp chat companion with a gentle, friendly character. It supports Sinhala and English, uses Gemini as the primary AI provider, and calls Groq only when Gemini fails. It is designed to run inside a Kaggle notebook. The project uses the Baileys 6.7.24 code line with a pinned community LID/PN decryption-retry fix (`c82d22d22ee01db739b781e1df064f019bff94e5`). This is a temporary GitHub-sourced build because the fix has not been merged into the official Baileys release line; review the [fix PR](https://github.com/WhiskeySockets/Baileys/pull/2763) before changing this pin.
+Seha is a personal WhatsApp chat companion with a gentle, friendly character. It supports Sinhala and English, uses Gemini as the primary AI provider, and calls Groq only when Gemini fails. It is designed to run inside a Kaggle notebook. The project builds the Baileys 6.7.24 code line from a pinned community LID/PN decryption-retry commit (`c82d22d22ee01db739b781e1df064f019bff94e5`). The Kaggle installer also pins `libsignal` to the compatible commit from Baileys' own Yarn lockfile (`4d08331a833727c338c1a90041d17b870210dfae`), because npm does not consume that Yarn lockfile while preparing a Git dependency. This is a temporary GitHub-sourced build because the fix has not been merged into the official Baileys release line; review the [fix PR](https://github.com/WhiskeySockets/Baileys/pull/2763) before changing these pins.
 
 > **Important:** This project uses Baileys, an unofficial WhatsApp Web integration. It is not the official WhatsApp Business Platform. Use a separate test number, avoid bulk messaging, and understand that unofficial automation may carry account restrictions or logout risk.
 
@@ -86,7 +86,7 @@ The project source, README, ZIP, and default JSON files contain **no real keys, 
 
 ### 3. Run the cells in order
 
-The notebook installs Node.js 22 and FFmpeg, downloads your GitHub repository, installs packages, creates a Kaggle-only auth folder, and starts Seha. A GitHub token is required in the Kaggle cell for the Contents API to read and write the database; it also allows cloning a private repository. When the eight-digit code appears:
+The notebook installs Node.js 22 and FFmpeg, updates your GitHub repository clone, builds the pinned Baileys LID/PN fix with the compatible `libsignal` revision, installs Seha's packages, and runs syntax checks and tests before starting Seha. A GitHub token is required in the Kaggle cell for the Contents API to read and write the database; it also allows cloning a private repository. When the eight-digit code appears:
 
 1. Open WhatsApp on the phone number you entered.
 2. Go to **Settings → Linked Devices → Link a Device**.
