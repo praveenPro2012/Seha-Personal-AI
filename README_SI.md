@@ -20,7 +20,7 @@
 
 [සිංහල උපදෙස්](README_SI.md) · [Features](#features) · [Kaggle setup](#run-on-kaggle) · [Commands](#commands)
 
-<img src="assets/seha-demo.gif" width="560" alt="Animated Seha chat demonstration" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=3000&pause=900&color=F78DB4&center=true&vCenter=true&width=650&lines=Hello%2C+I%27m+Seha+%F0%9F%8C%B8;Sinhala+%26+English+WhatsApp+companion;Running+on+Kaggle" alt="Animated Seha introduction" />
 
 </div>
 
@@ -32,20 +32,16 @@
 
 ## මේ project එකෙන් මොනවාද වෙන්නේ?
 
-Seha කියන්නේ Sinhala/English දෙකෙන්ම ස්වභාවිකව කතා කරන WhatsApp bot එකක්. Gemini primary AI එක. Gemini එක fail වුණොත් විතරක් Groq fallback එක භාවිතා කරනවා. Chat history එක save කරන්නේ නැහැ. User තමන් ගැන පැහැදිලිව කියන නම/වයස/ප්‍රදේශය වගේ කුඩා profile facts විතරයි save කරන්නේ. Baileys 6.7.24 API line එක pin කරලා තියෙන්නේ v7 release-candidate එකේ breaking changes වළක්වන්න.
+Seha කියන්නේ Sinhala/English දෙකෙන්ම ස්වභාවිකව කතා කරන WhatsApp bot එකක්. Gemini primary AI එක. Gemini එක fail වුණොත් විතරක් Groq fallback එක භාවිතා කරනවා. Chat history එක save කරන්නේ නැහැ. User තමන් ගැන පැහැදිලිව කියන නම/වයස/ප්‍රදේශය වගේ කුඩා profile facts විතරයි save කරන්නේ. Baileys 6.7.24 legacy stable version එක භාවිතා කරනවා. v7 release-candidate එකේ breaking API changes තිබෙන නිසා මේ project එකට එය තෝරාගෙන නැහැ.
 
 **වැදගත්:** Baileys කියන්නේ unofficial WhatsApp Web library එකක්. WhatsApp එකේ official Business API එකක් නෙවෙයි. Separate test number එකක් භාවිතා කරන්න. Spam/bulk messaging කරන්න එපා. Account logout/restriction risk එකක් තියෙන්න පුළුවන්.
 
 ## පියවර 1 — ZIP එක download කරලා GitHub එකට දාන්න
 
-1. `Seha-Personal-AI.zip` extract කරන්න.
-2. GitHub එකට ගිහින් `New repository` තෝරන්න.
-3. Repository name එක `Seha-Personal-AI` දෙන්න.
-4. **Private** තෝරන්න.
-5. Extract කළ folder එක ඇතුළේ තියෙන files GitHub repository එකට upload කරන්න.
-6. ZIP file එකම upload කරන්න එපා; ZIP එක ඇතුළේ තියෙන files/folders upload කරන්න.
+1. ඔයාගේ දැනට තියෙන `Sachintha919/Seha-Personal-AI` GitHub repository එක භාවිතා කරන්න.
+2. Full project ZIP එක extract කරලා, files/folders repository එකට upload කරලා updates commit කරන්න. ZIP file එකම upload කරන්න එපා.
 
-GitHub JSON database එකත් use කරනවා නම්, ඒ repository එකට පමණක් access තියෙන Fine-grained Personal Access Token එකක් හදන්න. `Contents: Read and write` permission දෙන්න. Token එක notebook cell එකට දාන්න; source code එකට හෝ GitHub එකට දාන්න එපා.
+User profiles සහ settings GitHub එකේම save වෙන නිසා Fine-grained Personal Access Token එකක් අනිවාර්යයි. ඒ token එකට මේ repository එකේ `Contents: Read and write` permission දෙන්න. Token එක Kaggle notebook cell එකට විතරක් දාන්න; source code එකට හෝ GitHub එකට upload කරන්න එපා.
 
 ## පියවර 2 — Kaggle notebook එක open කරන්න
 
@@ -57,7 +53,7 @@ Project එකේ `kaggle/Seha_Kaggle_Setup.ipynb` file එක Kaggle notebook �
 - `GROQ_API_KEY`: fallback key එක. නැත්නම් හිස්ව තබන්න.
 - `GITHUB_OWNER`: GitHub username එක.
 - `GITHUB_REPO`: repository name එක.
-- `GITHUB_TOKEN`: GitHub token එක. GitHub database sync ඕන නැත්නම් හිස්ව තබන්න.
+- `GITHUB_TOKEN`: GitHub token එක. මේක අනිවාර්යයි; profile/settings GitHub එකේ save කිරීමට `Contents: Read and write` permission අවශ්‍යයි.
 
 **මේ project ZIP එක තුළ කිසිම සැබෑ API key, phone number, GitHub token හෝ WhatsApp session එකක් නැහැ.** ඔයාගේ values Kaggle notebook cell එකේම දාන්න.
 
@@ -111,13 +107,17 @@ Kaggle output එකේ ඉලක්කම් 8ක pairing code එකක් එ
 - Chat messages / history එක save කරන්නේ නැහැ.
 - `.forgetme` යැව්වොත් ඔයාගේ profile එක මකනවා.
 
-## GitHub database එක
+## GitHub database එක — GitHub පමණයි
 
-GitHub sync එක active වෙන්නේ `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN` තුනම ලබා දුන්නොත් විතරයි. එවිට profile/settings වෙනස් වුණාම පමණක් `database/users.json` හෝ `database/settings.json` update වෙනවා. Token එකක් නැත්නම් Kaggle session එකේ local database එක පමණක් භාවිතා වෙනවා; session එක අවසන් වුණාම ඒ data නැතිවෙන්න පුළුවන්.
+මේ project එකේ user profiles සහ bot settings save වෙන්නේ GitHub repository එකේ `database/users.json` සහ `database/settings.json` files දෙකේ පමණයි. Kaggle disk එකට ඒවා write කරන්නේ නැහැ. Kaggle notebook එක GitHub repository එක clone කළාට පස්සේ JSON files දෙක local copy එකේ තිබෙන්න ඉඩ දෙනවා. නමුත් bot එක ඒවා local විදිහට භාවිතා කරන්නේ නැහැ. Data කියවන්නේ සහ update කරන්නේ GitHub API එකෙන් විතරයි.
+
+`GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN` තුනම අනිවාර්යයි. Token එකට මේ repository එකේ `Contents: Read and write` permission දෙන්න. GitHub API එක වැඩ නොකළොත් හෝ permission ප්‍රමාණවත් නැත්නම් local database එකකට fallback වෙන්නේ නැහැ; save එක fail වුණා කියලා පෙන්වනවා.
+
+**සටහන:** දැනට repository එක Public. එහි save කරන profile/settings JSON files වෙනත් අයටත් බලන්න පුළුවන්. මේක ඔයා ඉල්ලූ one-time test setup එකට එහෙම configure කරලා තියෙනවා.
 
 ## Kaggle session එක අවසන් වුණොත්?
 
-Kaggle session එක ස්ථිර server එකක් නෙවෙයි. Session එක stop/expire වුණොත් notebook එක නැවත run කරන්න වෙනවා. WhatsApp session credentials GitHub එකට upload නොකරන නිසා Kaggle working storage එක reset වුණොත් නැවත pairing කරන්න සිදුවිය හැකියි.
+Kaggle session එක stop/expire වුණොත් notebook එක නැවත run කරන්න වෙනවා. User profiles/settings GitHub එකේ තිබෙන නිසා ඒවා Kaggle reset වුණත් ඉතිරි වෙනවා. WhatsApp pairing session credentials විතරක් Kaggle working storage එකේ තබනවා; ඒවා reset වුණොත් නැවත pairing කරන්න සිදුවිය හැකියි.
 
 ## Media ගැන සීමාව
 
