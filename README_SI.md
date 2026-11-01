@@ -38,14 +38,13 @@ Seha කියන්නේ Sinhala/English දෙකෙන්ම ස්වභා
 
 ## පියවර 1 — ZIP එක download කරලා GitHub එකට දාන්න
 
-1. ඔයාගේ දැනට තියෙන `Sachintha919/Seha-Personal-AI` GitHub repository එක භාවිතා කරන්න.
-2. Full project ZIP එක extract කරලා, files/folders repository එකට upload කරලා updates commit කරන්න. ZIP file එකම upload කරන්න එපා.
+1. Kaggle notebook එක application source code එක `Sachintha919/Seha-Personal-AI` public repository එකෙන් ගන්නවා. නමුත් `GITHUB_OWNER` සහ `GITHUB_REPO` කියන්නේ profile/settings database එක GitHub API හරහා save කරන වෙනම repository එක. දැනට notebook එකේ ඒ database එක `praveenPro2012/Seha-Personal-AI` ලෙස සකසා තියෙනවා. ඒ values වෙනස් නොකළොත් කලින් තිබුණු database එකම භාවිතා වෙනවා. පරණ Kaggle project folder එකත් local JSON copies දෙකත් මකන්නේ නැහැ.
 
 User profiles සහ settings GitHub එකේම save වෙන නිසා Fine-grained Personal Access Token එකක් අනිවාර්යයි. ඒ token එකට මේ repository එකේ `Contents: Read and write` permission දෙන්න. Token එක Kaggle notebook cell එකට විතරක් දාන්න; source code එකට හෝ GitHub එකට upload කරන්න එපා.
 
 ## පියවර 2 — Kaggle notebook එක open කරන්න
 
-Project එකේ `kaggle/Seha_Kaggle_Setup.ipynb` file එක Kaggle notebook එකක් විදිහට open කරන්න. Notebook එකේ CONFIGURATION කියන cell එකේ values වෙනස් කරන්න:
+Project එකේ `kaggle/Seha_Kaggle_Setup.ipynb` file එක Kaggle notebook එකක් විදිහට open කරන්න. CONFIGURATION cell එකේ WhatsApp number සහ API keys දාන්න. දැනට තිබෙන database එකම පවත්වාගෙන යන්න `GITHUB_OWNER` සහ `GITHUB_REPO` values `praveenPro2012` සහ `Seha-Personal-AI` ලෙසම තබන්න:
 
 - `OWNER_NUMBER`: bot එකේ owner ගේ WhatsApp number එක. Country code එකත් එක්ක digits පමණක්.
 - `WHATSAPP_NUMBER`: WhatsApp එකට link කරන්න ඕන number එක. Owner number එකම නම් ඒකම දාන්න.
@@ -60,8 +59,8 @@ Project එකේ `kaggle/Seha_Kaggle_Setup.ipynb` file එක Kaggle notebook �
 ## පියවර 3 — Notebook cells එකින් එක run කරන්න
 
 1. පළමු cell එක Node.js 22 සහ FFmpeg install කරනවා.
-2. ඊළඟ cell එක GitHub repo එක clone හෝ update කරනවා.
-3. ඊළඟ cell එක LID/PN fix එක සහිත Baileys source එකට ගැළපෙන `libsignal` version එක pin කරලා build කරනවා.
+2. ඊළඟ cell එක application source code එක `Sachintha919/Seha-Personal-AI` repository එකෙන් අලුත් Kaggle folder එකකට clone/update කරනවා. පරණ folder එක සහ JSON copies මකන්නේ නැහැ.
+3. ඊළඟ cell එක LID/PN fix එක සහ තමන්ගේ account LID fallback එක සහිත Baileys source එකට ගැළපෙන `libsignal` version එක pin කරලා build කරනවා.
 4. ඊළඟට Seha packages install කරලා syntax checks සහ tests run කරනවා.
 5. අවසාන cell එක Seha start කරනවා.
 
@@ -70,6 +69,10 @@ Kaggle output එකේ ඉලක්කම් 8ක pairing code එකක් එ
 **WhatsApp → Settings → Linked Devices → Link a Device → Link with phone number instead**
 
 ඊට පස්සේ Kaggle එකේ පෙන්වන code එක ඇතුළත් කරන්න.
+
+## Owner self-chat එකෙන් commands යැවීම
+
+Bot එක link කරපු WhatsApp account එකේම **Message yourself** chat එකට `.list` හෝ `.owner status` වගේ dot-command එකක් යවන්නත් දැන් පුළුවන්. Self-chat එකෙන් Seha process කරන්නේ පැහැදිලි dot-commands විතරයි. සාමාන්‍ය outgoing messages process කරන්නේ නැහැ; එහෙම කළොත් bot reply loop එකක් ඇතිවෙන්න පුළුවන්.
 
 ## Commands
 
@@ -110,7 +113,7 @@ Kaggle output එකේ ඉලක්කම් 8ක pairing code එකක් එ
 
 ## GitHub database එක — GitHub පමණයි
 
-මේ project එකේ user profiles සහ bot settings save වෙන්නේ GitHub repository එකේ `database/users.json` සහ `database/settings.json` files දෙකේ පමණයි. Kaggle disk එකට ඒවා write කරන්නේ නැහැ. Kaggle notebook එක GitHub repository එක clone කළාට පස්සේ JSON files දෙක local copy එකේ තිබෙන්න ඉඩ දෙනවා. නමුත් bot එක ඒවා local විදිහට භාවිතා කරන්නේ නැහැ. Data කියවන්නේ සහ update කරන්නේ GitHub API එකෙන් විතරයි.
+මේ project එකේ user profiles සහ bot settings save වෙන්නේ Kaggle CONFIGURATION cell එකේ `GITHUB_OWNER/GITHUB_REPO` ලෙස දක්වා ඇති database repository එකේ `database/users.json` සහ `database/settings.json` files දෙකේ පමණයි. Application source repository එක (`Sachintha919/Seha-Personal-AI`) සහ database repository එක වෙන වෙනමයි. Kaggle disk එකට ඒවා write කරන්නේ නැහැ. Kaggle notebook එක GitHub repository එක clone කළාට පස්සේ JSON files දෙක local copy එකේ තිබෙන්න ඉඩ දෙනවා. නමුත් bot එක ඒවා local විදිහට භාවිතා කරන්නේ නැහැ. Data කියවන්නේ සහ update කරන්නේ GitHub API එකෙන් විතරයි.
 
 `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN` තුනම අනිවාර්යයි. Token එකට මේ repository එකේ `Contents: Read and write` permission දෙන්න. GitHub API එක වැඩ නොකළොත් හෝ permission ප්‍රමාණවත් නැත්නම් local database එකකට fallback වෙන්නේ නැහැ; save එක fail වුණා කියලා පෙන්වනවා.
 
@@ -118,7 +121,7 @@ Kaggle output එකේ ඉලක්කම් 8ක pairing code එකක් එ
 
 ## LID / Bad MAC error එකක් ආවොත්?
 
-මේ build එක WhatsApp message එකේ paired PN/LID identity එක ලබාදී තිබුණොත් විකල්ප identity එකෙන් decrypt කිරීම නැවත උත්සාහ කරනවා. Install කිරීමේදී `libsignal` TypeScript errors ආවොත්, GitHub එකේ අලුත් `kaggle/Seha_Kaggle_Setup.ipynb` එක භාවිතා කරන්න. එය ගැළපෙන `libsignal` revision එක pin කරලා Baileys build කරනවා. WhatsApp stanza එකේ ඒ identity එක නොතිබුණොත් මේ retry එක කරන්න බැහැ. එහෙම වෙලාවක අලුත් log එක සම්පූර්ණයෙන් ලබාගන්න; `408 Request Time-out` එක වෙනම network/WhatsApp initialization ගැටලුවක් විය හැකියි.
+මේ build එක WhatsApp message එකේ paired PN/LID identity එක ලබාදී තිබුණොත් විකල්ප identity එකෙන් decrypt කිරීම නැවත උත්සාහ කරනවා. තමන්ගේම linked account LID එකෙන් එන peer-sync message එකක ඒ තොරතුර නොතිබුණොත්, failed LID එක account එකේම LID එක බව තහවුරු වූ විට විතරක් account එකේ phone-number JID එකෙන් නැවත decrypt කරනවා. Install කිරීමේදී `libsignal` TypeScript errors ආවොත්, GitHub එකේ අලුත් `kaggle/Seha_Kaggle_Setup.ipynb` එක භාවිතා කරන්න. එය ගැළපෙන `libsignal` revision එක pin කරලා Baileys build කරනවා. WhatsApp stanza එකේ ඒ identity එක නොතිබුණොත් මේ retry එක කරන්න බැහැ. එහෙම වෙලාවක අලුත් log එක සම්පූර්ණයෙන් ලබාගන්න; `408 Request Time-out` එක වෙනම network/WhatsApp initialization ගැටලුවක් විය හැකියි.
 
 ## Kaggle session එක අවසන් වුණොත්?
 
